@@ -37,3 +37,12 @@ CONSTRAINT FK_SALARY_PROJECT
 FOREIGN KEY (PROJECT_ID)
 REFERENCES PROJECTS(ID)
 );
+
+
+Write a SQL query to fetch project code and count of employees (code, counter) sorted by counter in ascending order. example 48205501099, 4
+
+SELECT A.CODE, COUNT(B.EMPLOYEE_ID) AS COUNT  
+FROM PROJECTS A INNER JOIN SALARIES B 
+ON A.ID = B.PROJECT_ID
+GROUP BY A.CODE
+ORDER BY COUNT DESC;
